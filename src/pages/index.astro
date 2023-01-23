@@ -1,13 +1,72 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../layouts/Header.astro";
+import Header from "../layouts/Header";
 import Footer from "../layouts/Footer.astro";
+import ProjectList from "../components/projectList/index";
+import ProfilePic from "/pic.jpeg";
+import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiFillTwitterCircle,
+} from "solid-icons/ai";
 ---
 
 <Layout title="Portfollio">
-  <Header />
-  <main class="flex-1">main</main>
-  <Footer />
-</Layout>
+  <Header home />
+  <main class="flex-1 container mx-auto max-w-2xl px-6">
+    <!-- profile -->
+    <section class="flex mb-16 flex-col md:flex-row-reverse gap-8 md:gap-14">
+      <div class="w-[100px] md:w-[400px]">
+        <img
+          src={ProfilePic}
+          alt="profile_pic"
+          class="aspect-square"
+          width="200"
+          height="200"
+        />
+      </div>
 
-<style></style>
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold text-white">
+          Kenneth Racelis
+        </h1>
+        <p class="text-gray-200 mb-4 text-base">Front-End Developer</p>
+        <p class="text-gray-400">
+          I am a front-end developer, I am constantly seeking to expand my
+          skillset by exploring new technologies such as Solid.js, Astro.js,
+          Vitest and backend technologies. You can view a selection of my work
+          in the 'Projects' section of my portfolio.
+        </p>
+      </div>
+    </section>
+    <section class="mb-16">
+      <h2 class="mb-4 text-2xl md:text-3xl">Projects</h2>
+      <ProjectList client:idle />
+    </section>
+    <section class="mb-16">
+      <h3 class="mb-4 text-2xl md:text-3xl">Get in Touch</h3>
+      <p class="text-gray-400">
+        If you want to work together, Don't hesitate to contact me.
+      </p>
+      <a
+        class="mb-4 underline inline-block text-gray-400 hover:text-white"
+        href="mailto:racelisjk@gmail.com">racelisjk@gmail.com</a
+      >
+      <div class="flex gap-3">
+        <a href="https://github.com/K3ndev" class="hover:scale-125 text-xl"
+          ><AiFillGithub /></a
+        >
+        <a
+          href="https://www.linkedin.com/in/jkenneth-racelis/"
+          class="hover:scale-125 text-xl"><AiFillLinkedin /></a
+        >
+        <a href="https://twitter.com/k3n_dev" class="hover:scale-125 text-xl"
+          ><AiFillTwitterCircle /></a
+        >
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <style></style>
+</Layout>

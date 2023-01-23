@@ -15,7 +15,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col text-white">
     <slot />
   </body>
 </html>
@@ -23,5 +23,28 @@ const { title } = Astro.props;
   html {
     font-family: system-ui, sans-serif;
     background-color: #f6f6f6;
+  }
+
+  body {
+    background: rgb(17, 24, 39);
+    background: -moz-radial-gradient(
+      circle,
+      rgba(17, 24, 39, 1) 7%,
+      rgba(17, 22, 35, 1) 37%,
+      rgba(15, 14, 14, 1) 95%
+    );
+    background: -webkit-radial-gradient(
+      circle,
+      rgba(17, 24, 39, 1) 7%,
+      rgba(17, 22, 35, 1) 37%,
+      rgba(15, 14, 14, 1) 95%
+    );
+    background: radial-gradient(
+      circle,
+      rgba(17, 24, 39, 1) 7%,
+      rgba(17, 22, 35, 1) 37%,
+      rgba(15, 14, 14, 1) 95%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111827",endColorstr="#0f0e0e",GradientType=1);
   }
 </style>
