@@ -37,7 +37,7 @@ function Header(props: headerProps) {
           </li>
         </ul>
         <div>
-          <button class="block bg-gray-700 p-2 rounded-lg">
+          <button class="block bg-gray-700 p-2 rounded-lg" aria-label='toggleMode'>
             <BsSun class="text-xl " />
           </button>
         </div>
