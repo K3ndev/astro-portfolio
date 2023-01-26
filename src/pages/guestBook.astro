@@ -1,0 +1,14 @@
+---
+import Comment from "../components/comment/index";
+import Footer from "../layouts/Footer.astro";
+import Header from "../layouts/Header";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="GuestBook">
+  <Header guestBook />
+  <main class="flex-1 container mx-auto max-w-2xl px-6">
+    <Comment />
+  </main>
+  <Footer />
+</Layout>

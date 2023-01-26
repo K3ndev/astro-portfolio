@@ -14,13 +14,19 @@ function ProjectList() {
           <a
             class="bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300"
             href={item.projUrl}
-            target="_blank"
+            target={item.projUrl === "" ? "_self" : "_blank"}
           >
             <div>
               <FaRegularFileCode class="text-xl" />
             </div>
             <div>
-              <h3 class="text-gray-200 text-base">{item.projName}</h3>
+              <h3
+                class={`text-gray-200 text-base ${
+                  item.projUrl === "" && "line-through"
+                }`}
+              >
+                {item.projName}
+              </h3>
               <p class="text-gray-400 text-sm md:text-base">{item.projDesc}</p>
             </div>
           </a>

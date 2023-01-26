@@ -37,4 +37,11 @@ export const dataProj: dataProjType = [
     projTech: ["Next.js", "Typescript", "Tailwind"],
     projUrl: "",
   },
+  {
+    projNum: 5,
+    projName: "Nuxt-Movies",
+    projDesc: "Build with Nuxt.js",
+    projTech: ["Nuxt.js", "Typescript", "Tailwind"],
+    projUrl: "",
+  },
 ];
