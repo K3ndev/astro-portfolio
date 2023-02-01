@@ -50,12 +50,13 @@ function Header(props: headerProps) {
           </li>
         </ul>
         <div>
-          <button
+          <a
             class="block bg-gray-700 p-2 rounded-lg border border-gray-700 hover:border hover:border-gray-400"
-            aria-label="toggleMode"
+            href="https://k3n-web-metrics.netlify.app/"
+            target="_blank"
           >
             <BsSpeedometer class="text-xl " />
-          </button>
+          </a>
         </div>
       </nav>
     </header>

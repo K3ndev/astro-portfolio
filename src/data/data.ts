@@ -19,9 +19,9 @@ export const dataProj: dataProjType = [
   {
     projNum: 2,
     projName: "TODO",
-    projDesc: "Build with Next.js",
-    projTech: ["Next.js", "Typescript", "Tailwind"],
-    projUrl: "https://k3n-todo.vercel.app/",
+    projDesc: "Build with React.js",
+    projTech: ["React.js", "Typescript", "Tailwind"],
+    projUrl: "https://react-todo-k3ndev.vercel.app/",
   },
   {
     projNum: 3,
