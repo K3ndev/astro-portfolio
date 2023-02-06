@@ -43,17 +43,17 @@ function Header(props: headerProps) {
               GuestBook
             </a>
           </li>
-          <li>
+          {/* <li>
             <a class="cursor-pointer text-gray-400 hover:bg-gray-800 hover:underline rounded-lg p-1 md:px-3 md:py-2">
               Resume
             </a>
-          </li>
+          </li> */}
         </ul>
         <div>
           <a
             class="block bg-gray-700 p-2 rounded-lg border border-gray-700 hover:border hover:border-gray-400"
-            href="https://k3n-web-metrics.netlify.app/"
-            target="_blank"
+            // href="#"
+            // target="_blank"
           >
             <BsSpeedometer class="text-xl " />
           </a>
