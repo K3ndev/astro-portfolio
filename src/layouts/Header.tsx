@@ -55,7 +55,7 @@ function Header(props: headerProps) {
             // href="#"
             // target="_blank"
           >
-            <BsSpeedometer class="text-xl " />
+            <BsSpeedometer class="text-xl cursor-pointer" />
           </a>
         </div>
       </nav>
