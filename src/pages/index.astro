@@ -1,8 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../layouts/Header";
-import Footer from "../layouts/Footer.astro";
-import ProjectList from "../components/projectList/index";
+import Layout from "../components/layouts/index.astro";
+import Footer from "../components/footer/index.astro";
+import { ProjectList, Header } from "../components/index";
 import ProfilePic from "/profile.webp";
 import {
   AiFillGithub,
@@ -56,16 +55,19 @@ import {
       <div class="flex gap-3">
         <a
           href="https://github.com/K3ndev"
+          target="_blank"
           class="hover:scale-125 text-xl"
           aria-label="github"><AiFillGithub /></a
         >
         <a
           href="https://www.linkedin.com/in/jkenneth-racelis/"
+          target="_blank"
           class="hover:scale-125 text-xl"
           aria-label="linkedin"><AiFillLinkedin /></a
         >
         <a
           href="https://twitter.com/k3n_dev"
+          target="_blank"
           class="hover:scale-125 text-xl"
           aria-label="twitter"><AiFillTwitterCircle /></a
         >

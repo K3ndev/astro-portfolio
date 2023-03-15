@@ -1,4 +1,4 @@
-function Comment() {
+export function Comment() {
   return (
     <script
       src="https://giscus.app/client.js"
@@ -19,5 +19,3 @@ function Comment() {
     ></script>
   );
 }
-
-export default Comment;

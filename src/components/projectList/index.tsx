@@ -5,7 +5,7 @@ import { AiOutlineArrowRight } from "solid-icons/ai";
 
 // make this ssr
 
-function ProjectList() {
+export function ProjectList() {
   return (
     <section class="mb-12">
       {/* card */}
@@ -43,4 +43,3 @@ function ProjectList() {
   );
 }
 
-export default ProjectList;

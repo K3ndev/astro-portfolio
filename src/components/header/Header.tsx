@@ -6,13 +6,13 @@ type headerProps = {
   guestBook?: boolean;
 };
 
-function Header(props: headerProps) {
+export function Header(props: headerProps) {
   const { home, blog, guestBook } = props;
 
   return (
     <header class="container mx-auto max-w-2xl px-4">
-      <nav class="w-full flex justify-between mt-8 mb-14">
-        <ul class="flex gap-1 items-center">
+      <nav class="w-full flex items-center justify-between mt-8 mb-16">
+        <ul class="flex gap-1">
           <li>
             <a
               href="/"
@@ -25,12 +25,13 @@ function Header(props: headerProps) {
           </li>
           <li>
             <a
-              href=""
+              href="https://gist.github.com/K3ndev"
+              target="_blank"
               class={`cursor-pointer ${
                 blog ? "text-white" : "text-gray-400"
               } hover:bg-gray-800 rounded-lg p-1 md:px-3 md:py-2`}
             >
-              Blogs
+              Gist
             </a>
           </li>
           <li>
@@ -62,5 +63,3 @@ function Header(props: headerProps) {
     </header>
   );
 }
-
-export default Header;

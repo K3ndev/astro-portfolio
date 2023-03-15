@@ -1,6 +1,6 @@
 import { createSignal, onMount, onCleanup } from "solid-js";
 
-function TechStacks() {
+export function TechStacks() {
   const [dataStacks, setDataStacks] = createSignal<string>();
   const [isFetchStacks, setIsFetchStacks] = createSignal(false);
 
@@ -42,9 +42,3 @@ function TechStacks() {
     </div>
   );
 }
-
-export default TechStacks;
-
-// todo https://codepen.io/ykadosh/pen/KKezJzz
-// todo https://github.com/lxsmnsyc/solid-headless/blob/main/docs/src/components/CodeSnippet.tsx
-// todo https://bright.codehike.org/
