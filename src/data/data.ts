@@ -28,7 +28,7 @@ export const dataProj: dataProjType = [
     projName: "React-todo-redux",
     projDesc: "Build with React.js",
     projTech: ["Typescript", "Tailwind"],
-    projUrl: "",
+    projUrl: "https://react-todo-redux-k3ndev.vercel.app/",
   },
   {
     projNum: 4,
