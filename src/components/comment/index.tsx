@@ -2,7 +2,7 @@ export function Comment() {
   return (
     <script
       src="https://giscus.app/client.js"
-      data-repo="K3ndev/Portfolio-v2"
+      data-repo="K3ndev/astro-portfolio"
       data-repo-id="R_kgDOIwzONQ"
       data-category="Comments"
       data-category-id="DIC_kwDOIwzONc4CT0ZI"
