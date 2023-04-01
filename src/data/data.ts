@@ -47,8 +47,15 @@ export const dataProj: dataProjType = [
   {
     projNum: 6,
     projName: "SolidStart-Pokemon",
-    projDesc: "Build with solidStart.js",
+    projDesc: "Build with SolidStart.js",
     projTech: ["Typescript", "Tailwind"],
     projUrl: "",
+  },
+  {
+    projNum: 6,
+    projName: "Next-WebPulse",
+    projDesc: "Build with Next.js",
+    projTech: ["Javascript", "Tailwind"],
+    projUrl: "https://github.com/K3ndev/next-web-pulse",
   },
 ];
