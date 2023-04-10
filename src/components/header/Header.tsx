@@ -12,7 +12,7 @@ export function Header(props: headerProps) {
   return (
     <header class="container mx-auto max-w-2xl px-4">
       <nav class="w-full flex items-center justify-between mt-8 mb-16">
-        <ul class="flex gap-1">
+        <ul class="flex gap-5 sm:gap-1 md:gap-2">
           <li>
             <a
               href="/"
@@ -44,19 +44,14 @@ export function Header(props: headerProps) {
               GuestBook
             </a>
           </li>
-          {/* <li>
-            <a class="cursor-pointer text-gray-400 hover:bg-gray-800 hover:underline rounded-lg p-1 md:px-3 md:py-2">
-              Resume
-            </a>
-          </li> */}
         </ul>
         <div>
           <a
-            class="block bg-gray-700 p-2 rounded-lg border border-gray-700 hover:border hover:border-gray-400"
-            // href="#"
-            // target="_blank"
+            class="block bg-gray-700 p-2 rounded-lg border border-gray-700 hover:border hover:border-gray-400 cursor-pointer"
+            href="https://k3ndev-performance.netlify.app/k3ndev/"
+            target="_blank"
           >
-            <BsSpeedometer class="text-xl cursor-pointer" />
+            <BsSpeedometer class="text-xl " />
           </a>
         </div>
       </nav>
