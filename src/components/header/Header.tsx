@@ -4,10 +4,27 @@ type headerProps = {
   home?: boolean;
   blog?: boolean;
   guestBook?: boolean;
+  gists?: boolean;
 };
 
+// const fetchGist = async () => {
+//   const username = "K3ndev";
+//   const url = `https://api.github.com/users/${username}/gists`;
+
+//   const data = await fetch(url);
+//   const res = await data.json();
+
+//   return res;
+// };
+
 export function Header(props: headerProps) {
-  const { home, blog, guestBook } = props;
+  const { home, blog, guestBook, gists } = props;
+
+  // onMount(() => {
+  //   fetchGist().then((res: any) => {
+  //     console.log(res);
+  //   });
+  // });
 
   return (
     <header class="container mx-auto max-w-2xl px-4">
@@ -24,11 +41,19 @@ export function Header(props: headerProps) {
             </a>
           </li>
           <li>
-            <a
+            {/* <a
               href="https://gist.github.com/K3ndev"
               target="_blank"
               class={`cursor-pointer ${
                 blog ? "text-white" : "text-gray-400"
+              } hover:bg-gray-800 rounded-lg p-1 md:px-3 md:py-2`}
+            >
+              Gist
+            </a> */}
+            <a
+              href="/gists/"
+              class={`cursor-pointer ${
+                gists ? "text-white" : "text-gray-400"
               } hover:bg-gray-800 rounded-lg p-1 md:px-3 md:py-2`}
             >
               Gist
@@ -50,6 +75,7 @@ export function Header(props: headerProps) {
             class="block bg-gray-700 p-2 rounded-lg border border-gray-700 hover:border hover:border-gray-400 cursor-pointer"
             href="https://k3ndev-performance.netlify.app/k3ndev/"
             target="_blank"
+            aria-label="Benchmark K3ndev Personal web site projects"
           >
             <BsSpeedometer class="text-xl " />
           </a>

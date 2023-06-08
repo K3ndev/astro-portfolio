@@ -1,33 +1,70 @@
-import { For } from "solid-js";
-import { dataProj } from "../../data/data";
+import { For, onMount, createSignal } from "solid-js";
 import { FaRegularFileCode } from "solid-icons/fa";
 import { AiOutlineArrowRight } from "solid-icons/ai";
+import { Loading } from './Loading'
 
-// make this ssr
+type DataType = {
+  name: string;
+  description: string;
+  html_url: string;
+  homepage?: string;
+};
+
+const fetchRepos = async () => {
+  const username = "K3ndev";
+  const url = `https://api.github.com/users/${username}/repos`;
+
+  const data = await fetch(url);
+  const res = await data.json();
+
+  return res;
+};
 
 export function ProjectList() {
+  const [data, setData] = createSignal([]);
+
+  onMount(() => {
+    fetchRepos().then((res) => {
+      const keywords = ["astro", "solid", "solidstart", "react", "next", "vue", "nuxt", "svelte", "sveltekit"];
+      const filteredRepos = res.filter((repo: DataType) =>
+        keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
+      );
+      const repositories = filteredRepos.map((repo: DataType) => ({
+        name: repo.name,
+        description: repo.description,
+        html_url: repo.html_url,
+        homepage: repo.homepage,
+      }));
+      setData(repositories);
+    });
+  });
+
   return (
     <section class="mb-12">
       {/* card */}
-      <For each={dataProj} fallback={<div>Loading...</div>}>
-        {(item) => (
+      <For each={data()} fallback={<Loading />}>
+        {(item: DataType) => (
           <a
-            class="bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300"
-            href={item.projUrl}
-            target={item.projUrl === "" ? "_self" : "_blank"}
+            class="min-h-[68px] md:min-h-[76px] bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300"
+            href={
+              item.homepage === "" || item.name === "astro-portfolio"
+                ? item.html_url
+                : item.homepage
+            }
+            target="_blank"
           >
             <div>
               <FaRegularFileCode class="text-xl" />
             </div>
             <div>
               <h3
-                class={`text-gray-200 text-base ${
-                  item.projUrl === "" && "line-through"
-                }`}
+                class={`text-gray-200 text-base md:text-lg`}
               >
-                {item.projName}
+                {item.name}
               </h3>
-              <p class="text-gray-400 text-sm md:text-base">{item.projDesc}</p>
+              <p class="text-gray-400 text-sm md:text-base">
+                {item.description}
+              </p>
             </div>
           </a>
         )}
@@ -42,4 +79,3 @@ export function ProjectList() {
     </section>
   );
 }
-
