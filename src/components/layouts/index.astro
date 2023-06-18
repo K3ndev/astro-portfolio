@@ -14,14 +14,54 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta
-      name="description"
-      content="Explore my portfolio that build in astro with solid.js "
-    />
-    <meta
       name="google-site-verification"
       content="QajpGGQoBUWPWVjjbTovpjj6KqcvdlOwSdQFM5jXFzs"
     />
+
+    <!-- Primary Tags -->
     <title>{title}</title>
+    <meta name="title" content="K3ndev Portfolio" />
+    <meta
+      name="description"
+      content="Explore"
+      my
+      portfolio
+      that
+      build
+      in
+      astro
+      with
+      solid.js
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:title" content="K3ndev Portfolio" />
+    <meta
+      property="twitter:description"
+      content="Explore my portfolio that build in astro with solid.js"
+    />
+    <meta
+      property="twitter:image"
+      content="https://astro-k3ndev.vercel.app/open_graph_image.png"
+    />
+    <meta property="twitter:url" content="https://astro-k3ndev.vercel.app" />
+    <meta
+      property="twitter:card"
+      content="https://astro-k3ndev.vercel.app/open_graph_image.png"
+    />
+
+    <!-- Facebook -->
+    <meta property="og:title" content="K3ndev Portfolio" />
+    <meta
+      property="og:description"
+      content="Explore my portfolio that build in astro with solid.js"
+    />
+    <meta property="og:url" content="https://astro-k3ndev.vercel.app" />
+    <meta
+      property="og:image"
+      content="https://astro-k3ndev.vercel.app/open_graph_image.png"
+    />
+    <meta property="og:type" content="website" />
   </head>
   <body class="min-h-screen flex flex-col text-white">
     <slot />
