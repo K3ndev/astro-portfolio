@@ -25,7 +25,7 @@ export function ProjectList() {
 
   onMount(() => {
     fetchRepos().then((res) => {
-      const keywords = ["astro", "solid", "solidstart", "react", "next", "vue", "nuxt", "svelte", "sveltekit"];
+      const keywords = ["astro", "solid", "solidstart", "react", "next", "vue", "nuxt", "svelte", "sveltekit", "express"];
       const filteredRepos = res.filter((repo: DataType) =>
         keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
       );
