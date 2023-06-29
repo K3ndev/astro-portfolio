@@ -6,6 +6,24 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
+<script>
+const generateStart = (n) => {
+  let value = `${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px rgba(165, 190, 195, ${Math.random().toFixed(1)})`;
+
+  for (let i = 0; i <= n; i++) {
+    value += `, ${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px rgba(184, 174, 131, ${Math.random().toFixed(1)})`;
+  }
+
+  return value;
+}
+
+let starsElement1 = document.getElementById('stars');
+let starsElement2 = document.getElementById('stars2');
+starsElement1.style.boxShadow = generateStart(300);
+starsElement2.style.boxShadow = generateStart(200);
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,6 +82,8 @@ const { title } = Astro.props;
     <meta property="og:type" content="website" />
   </head>
   <body class="min-h-screen flex flex-col text-white">
+    <div id="stars"></div>
+    <div id="stars2"></div>
     <slot />
   </body>
 </html>
@@ -90,5 +110,55 @@ const { title } = Astro.props;
       rgba(15, 14, 14, 1) 95%
     );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111827",endColorstr="#0f0e0e",GradientType=1);
+  }
+
+
+  #stars {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 2s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  #stars2 {
+    width: 3px;
+    height: 3px;
+    box-shadow: $shadows-medium;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 4s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  #stars3 {
+    width: 4px;
+    height: 4px;
+    box-shadow: $shadows-big;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 3s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.2;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 </style>

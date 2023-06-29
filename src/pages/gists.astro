@@ -31,7 +31,7 @@ const gists = res.map((repo: any) => ({
         gists.map((item: any) => {
           return (
             <a
-            class="bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300"
+            class="bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300 transition ease-in-out"
             href={
               item.html_url
             }
@@ -55,7 +55,7 @@ const gists = res.map((repo: any) => ({
         }) 
       }
       <a
-      class="flex items-center gap-1 hover:underline text-gray-400 hover:text-gray-200"
+      class="flex items-center gap-1 hover:underline text-gray-400 hover:text-gray-200 duration-300 transition ease-out"
       href="https://gist.github.com/K3ndev"
       target="_blank"
     >

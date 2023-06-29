@@ -45,7 +45,7 @@ export function ProjectList() {
       <For each={data()} fallback={<Loading />}>
         {(item: DataType) => (
           <a
-            class="min-h-[68px] md:min-h-[76px] bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300"
+            class="min-h-[68px] md:min-h-[76px] bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300 transition ease-in-out"
             href={
               item.homepage === "" || item.name === "astro-portfolio"
                 ? item.html_url
@@ -70,7 +70,7 @@ export function ProjectList() {
         )}
       </For>
       <a
-        class="flex items-center gap-1 hover:underline text-gray-400 hover:text-gray-200"
+        class="flex items-center gap-1 hover:underline text-gray-400 hover:text-gray-200 duration-300 transition ease-out"
         href="https://github.com/K3ndev?tab=repositories"
         target="_blank"
       >
