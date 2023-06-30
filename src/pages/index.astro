@@ -12,9 +12,9 @@ import {
 
 <Layout title="Portfollio">
   <Header home client:load />
-  <main class="flex-1 container mx-auto max-w-2xl px-6">
+  <main class="container mx-auto max-w-2xl flex-1 px-6">
     <!-- profile -->
-    <section class="flex mb-16 flex-col md:flex-row-reverse gap-8 md:gap-14">
+    <section class="mb-16 flex flex-col gap-8 md:flex-row-reverse md:gap-14">
       <div class="w-[100px] md:w-[400px]">
         <img
           src={ProfilePic}
@@ -26,16 +26,15 @@ import {
       </div>
 
       <div>
-        <h1 class="text-3xl md:text-4xl font-bold text-white">
+        <h1 class="text-3xl font-bold text-white md:text-4xl">
           Kenneth Racelis
         </h1>
-        <p class="text-gray-200 mb-4 text-base">FrontEnd Developer</p>
+        <p class="mb-4 text-base text-gray-200">FrontEnd Developer</p>
         <p class="text-gray-400">
-          TypeScript, React, Next.js, Astro, Solid.js, Vue.js
-          | Exploring Next.js (app dir), Stripe, Gsap, Vitest, ORM, Playwright, DSA
-          | Linux Enthusiast.
-          You can view a selection of my work
-          in the 'Projects' section of my portfolio.
+          TypeScript, React, Next.js, Astro, Solid.js, Vue.js | Exploring
+          Next.js (app dir), Stripe, Gsap, Vitest, ORM, Playwright, DSA | Linux
+          Enthusiast. You can view a selection of my work in the 'Projects'
+          section of my portfolio.
         </p>
       </div>
     </section>
@@ -49,7 +48,7 @@ import {
         If you want to work together, Don't hesitate to contact me.
       </p>
       <a
-        class="mb-4 underline inline-block text-gray-400 hover:text-white duration-300 transition ease-out"
+        class="mb-4 inline-block text-gray-400 underline transition duration-300 ease-out hover:text-white"
         href="mailto:racelisjk@gmail.com"
         aria-label="email">racelisjk@gmail.com</a
       >
@@ -57,19 +56,19 @@ import {
         <a
           href="https://github.com/K3ndev"
           target="_blank"
-          class="hover:scale-125 text-xl duration-300 transition ease-out"
+          class="text-xl transition duration-300 ease-out hover:scale-125"
           aria-label="github"><AiFillGithub /></a
         >
         <a
           href="https://www.linkedin.com/in/jkenneth-racelis/"
           target="_blank"
-          class="hover:scale-125 text-xl duration-300 transition ease-out"
+          class="text-xl transition duration-300 ease-out hover:scale-125"
           aria-label="linkedin"><AiFillLinkedin /></a
         >
         <a
           href="https://twitter.com/k3n_dev"
           target="_blank"
-          class="hover:scale-125 text-xl duration-300 transition ease-out"
+          class="text-xl transition duration-300 ease-out hover:scale-125"
           aria-label="twitter"><AiFillTwitterCircle /></a
         >
       </div>

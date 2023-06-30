@@ -6,8 +6,6 @@ import Layout from "../components/layouts/index.astro";
 import Footer from "../components/footer/index.astro";
 import { AiOutlineArrowRight } from "solid-icons/ai";
 
-
-
 const username = "K3ndev";
 const url = `https://api.github.com/users/${username}/gists`;
 const data = await fetch(url);
@@ -16,52 +14,45 @@ const res = await data.json();
 const gists = res.map((repo: any) => ({
   html_url: repo.html_url,
   filename: repo.files[Object.keys(repo.files)[0]].filename,
-  updated_at: repo.updated_at
+  updated_at: repo.updated_at,
 }));
-
-
 ---
 
 <Layout title="GuestBook">
   <Header gists />
-  <main class="flex-1 container mx-auto max-w-2xl px-6">
+  <main class="container mx-auto max-w-2xl flex-1 px-6">
     <section class="mb-16">
       <h2 class="mb-4 text-2xl md:text-3xl">My Notes</h2>
       {
         gists.map((item: any) => {
           return (
             <a
-            class="bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300 transition ease-in-out"
-            href={
-              item.html_url
-            }
-            target="_blank"
-          >
-            <div>
-              <FaRegularFileCode class="text-xl" />
-            </div>
-            <div>
-              <h3
-                class={`text-gray-200 text-base md:text-lg`}
-              >
-                {item.filename}
-              </h3>
-              <p class="text-gray-400 text-sm md:text-base">
-                Updated at: {item.updated_at}
-              </p>
-            </div>
-          </a>
-          )
-        }) 
+              class="mb-3 flex cursor-pointer items-center gap-3 bg-gray-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:gap-4"
+              href={item.html_url}
+              target="_blank"
+            >
+              <div>
+                <FaRegularFileCode class="text-xl" />
+              </div>
+              <div>
+                <h3 class={`text-base text-gray-200 md:text-lg`}>
+                  {item.filename}
+                </h3>
+                <p class="text-sm text-gray-400 md:text-base">
+                  Updated at: {item.updated_at}
+                </p>
+              </div>
+            </a>
+          );
+        })
       }
       <a
-      class="flex items-center gap-1 hover:underline text-gray-400 hover:text-gray-200 duration-300 transition ease-out"
-      href="https://gist.github.com/K3ndev"
-      target="_blank"
-    >
-      View all Gist <AiOutlineArrowRight />
-    </a>
-
+        class="flex items-center gap-1 text-gray-400 transition duration-300 ease-out hover:text-gray-200 hover:underline"
+        href="https://gist.github.com/K3ndev"
+        target="_blank"
+      >
+        View all Gist <AiOutlineArrowRight />
+      </a>
     </section>
   </main>
   <Footer />

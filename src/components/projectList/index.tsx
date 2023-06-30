@@ -1,7 +1,7 @@
 import { For, onMount, createSignal } from "solid-js";
 import { FaRegularFileCode } from "solid-icons/fa";
 import { AiOutlineArrowRight } from "solid-icons/ai";
-import { Loading } from './Loading'
+import { Loading } from "./Loading";
 
 type DataType = {
   name: string;
@@ -25,7 +25,18 @@ export function ProjectList() {
 
   onMount(() => {
     fetchRepos().then((res) => {
-      const keywords = ["astro", "solid", "solidstart", "react", "next", "vue", "nuxt", "svelte", "sveltekit", "express"];
+      const keywords = [
+        "astro",
+        "solid",
+        "solidstart",
+        "react",
+        "next",
+        "vue",
+        "nuxt",
+        "svelte",
+        "sveltekit",
+        "express",
+      ];
       const filteredRepos = res.filter((repo: DataType) =>
         keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
       );
@@ -45,7 +56,7 @@ export function ProjectList() {
       <For each={data()} fallback={<Loading />}>
         {(item: DataType) => (
           <a
-            class="min-h-[68px] md:min-h-[76px] bg-gray-800 mb-3 p-3 cursor-pointer flex items-center gap-3 md:gap-4 hover:scale-105 duration-300 transition ease-in-out"
+            class="mb-3 flex min-h-[68px] cursor-pointer items-center gap-3 bg-gray-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4"
             href={
               item.homepage === "" || item.name === "astro-portfolio"
                 ? item.html_url
@@ -57,12 +68,8 @@ export function ProjectList() {
               <FaRegularFileCode class="text-xl" />
             </div>
             <div>
-              <h3
-                class={`text-gray-200 text-base md:text-lg`}
-              >
-                {item.name}
-              </h3>
-              <p class="text-gray-400 text-sm md:text-base">
+              <h3 class={`text-base text-gray-200 md:text-lg`}>{item.name}</h3>
+              <p class="text-sm text-gray-400 md:text-base">
                 {item.description}
               </p>
             </div>
@@ -70,7 +77,7 @@ export function ProjectList() {
         )}
       </For>
       <a
-        class="flex items-center gap-1 hover:underline text-gray-400 hover:text-gray-200 duration-300 transition ease-out"
+        class="flex items-center gap-1 text-gray-400 transition duration-300 ease-out hover:text-gray-200 hover:underline"
         href="https://github.com/K3ndev?tab=repositories"
         target="_blank"
       >

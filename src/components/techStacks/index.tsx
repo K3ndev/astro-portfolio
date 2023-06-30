@@ -34,8 +34,8 @@ export function TechStacks() {
     <div class="mb-12">
       <h2>TechStacks</h2>
 
-      <div class="w-full rounded-md flex items-center justify-between bg-gray-900 border-2 border-gray-900 dark:border-gray-50 p-2">
-        <div class="font-mono text-sm  text-gray-50 mx-2">
+      <div class="flex w-full items-center justify-between rounded-md border-2 border-gray-900 bg-gray-900 p-2 dark:border-gray-50">
+        <div class="mx-2 font-mono  text-sm text-gray-50">
           {dataStacks() && <code>{JSON.stringify(dataStacks())}</code>}
         </div>
       </div>
