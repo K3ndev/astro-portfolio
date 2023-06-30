@@ -6,24 +6,6 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<script>
-const generateStart = (n) => {
-  let value = `${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px rgba(165, 190, 195, ${Math.random().toFixed(1)})`;
-
-  for (let i = 0; i <= n; i++) {
-    value += `, ${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px rgba(184, 174, 131, ${Math.random().toFixed(1)})`;
-  }
-
-  return value;
-}
-
-let starsElement1 = document.getElementById('stars');
-let starsElement2 = document.getElementById('stars2');
-starsElement1.style.boxShadow = generateStart(300);
-starsElement2.style.boxShadow = generateStart(200);
-</script>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -162,3 +144,20 @@ starsElement2.style.boxShadow = generateStart(200);
     }
   }
 </style>
+
+<script>
+const generateStart = (n) => {
+  let value = `${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px rgba(165, 190, 195, ${Math.random().toFixed(1)})`;
+
+  for (let i = 0; i <= n; i++) {
+    value += `, ${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px rgba(184, 174, 131, ${Math.random().toFixed(1)})`;
+  }
+
+  return value;
+}
+
+let starsElement1 = document.getElementById('stars');
+let starsElement2 = document.getElementById('stars2');
+starsElement1.style.boxShadow = generateStart(300);
+starsElement2.style.boxShadow = generateStart(200);
+</script>
