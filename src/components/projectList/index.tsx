@@ -36,6 +36,7 @@ export function ProjectList() {
         "svelte",
         "sveltekit",
         "express",
+        "strapi"
       ];
       const filteredRepos = res.filter((repo: DataType) =>
         keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
