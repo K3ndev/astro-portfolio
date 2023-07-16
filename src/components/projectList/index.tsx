@@ -36,7 +36,9 @@ export function ProjectList() {
         "svelte",
         "sveltekit",
         "express",
-        "strapi"
+        "strapi",
+        "django",
+        "fastapi",
       ];
       const filteredRepos = res.filter((repo: DataType) =>
         keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
@@ -56,25 +58,33 @@ export function ProjectList() {
       {/* card */}
       <For each={data()} fallback={<Loading />}>
         {(item: DataType) => (
-          <a
-            class="mb-3 flex min-h-[68px] cursor-pointer items-center gap-3 bg-gray-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4"
-            href={
-              item.homepage === "" || item.name === "astro-portfolio"
-                ? item.html_url
-                : item.homepage
-            }
-            target="_blank"
-          >
+          <div class="mb-3 flex min-h-[68px] items-center gap-3 bg-gray-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4">
             <div>
-              <FaRegularFileCode class="text-xl" />
+              <a href={item.html_url} target="_blank">
+                <FaRegularFileCode class="cursor-pointer text-xl hover:fill-cyan-700" />
+              </a>
             </div>
             <div>
-              <h3 class={`text-base text-gray-200 md:text-lg`}>{item.name}</h3>
+              {item.homepage !== "" ? (
+                <a
+                  class={`text-base text-gray-200 hover:cursor-pointer hover:text-cyan-700 hover:underline md:text-lg`}
+                  href={item.homepage}
+                  target="_blank"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <p
+                  class={`text-base text-gray-200 hover:cursor-not-allowed hover:text-cyan-700 hover:underline md:text-lg`}
+                >
+                  {item.name}
+                </p>
+              )}
               <p class="text-sm text-gray-400 md:text-base">
                 {item.description}
               </p>
             </div>
-          </a>
+          </div>
         )}
       </For>
       <a
