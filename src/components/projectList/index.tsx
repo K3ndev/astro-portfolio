@@ -1,6 +1,6 @@
 import { For, onMount, createSignal } from "solid-js";
 import { FaRegularFileCode } from "solid-icons/fa";
-import { AiOutlineArrowRight } from "solid-icons/ai";
+import { AiOutlineArrowRight, AiOutlineLink } from "solid-icons/ai";
 import { Loading } from "./Loading";
 
 type DataType = {
@@ -39,6 +39,7 @@ export function ProjectList() {
         "strapi",
         "django",
         "fastapi",
+        "template",
       ];
       const filteredRepos = res.filter((repo: DataType) =>
         keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
@@ -58,31 +59,36 @@ export function ProjectList() {
       {/* card */}
       <For each={data()} fallback={<Loading />}>
         {(item: DataType) => (
-          <div class="mb-3 flex min-h-[68px] items-center gap-3 bg-gray-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4">
-            <div>
-              <a href={item.html_url} target="_blank">
-                <FaRegularFileCode class="cursor-pointer text-xl hover:fill-cyan-700" />
-              </a>
-            </div>
-            <div>
-              {item.homepage !== "" ? (
+          <div class="mb-3 flex min-h-[68px] justify-between gap-3 bg-gray-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4">
+            <div class="flex w-full gap-3">
+              <div class="flex items-center">
+                <a href={item.html_url} target="_blank">
+                  <FaRegularFileCode class="cursor-pointer text-xl hover:fill-cyan-700" />
+                </a>
+              </div>
+              <div>
                 <a
                   class={`text-base text-gray-200 hover:cursor-pointer hover:text-cyan-700 hover:underline md:text-lg`}
-                  href={item.homepage}
+                  href={item.html_url}
                   target="_blank"
                 >
                   {item.name}
                 </a>
+                <p class="text-sm text-gray-400 md:text-base">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start pt-2">
+              {item.homepage !== "" ? (
+                <a href={item.homepage} target="_blank">
+                  <AiOutlineLink class="cursor-pointer text-xl hover:fill-cyan-700" />
+                </a>
               ) : (
-                <p
-                  class={`text-base text-gray-200 hover:cursor-not-allowed hover:text-cyan-700 hover:underline md:text-lg`}
-                >
-                  {item.name}
+                <p>
+                  <AiOutlineLink class="inline cursor-pointer text-xl hover:cursor-not-allowed" />
                 </p>
               )}
-              <p class="text-sm text-gray-400 md:text-base">
-                {item.description}
-              </p>
             </div>
           </div>
         )}
