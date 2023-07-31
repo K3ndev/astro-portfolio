@@ -8,6 +8,63 @@ import {
   AiFillLinkedin,
   AiFillTwitterCircle,
 } from "solid-icons/ai";
+
+const techStack = [
+  {
+    text: "Javascript",
+  },
+  {
+    text: "Typescript",
+  },
+  {
+    text: "Golang",
+  },
+  {
+    text: "React.js",
+  },
+  {
+    text: "Next.js",
+  },
+  {
+    text: "Vue.js",
+  },
+  {
+    text: "Solid.js",
+  },
+  {
+    text: "Tailwind",
+  },
+  {
+    text: "Mantine",
+  },
+  // {
+  //   text: "GSAP",
+  // },
+  // {
+  //   text: "Node.js",
+  // },
+  // {
+  //   text: "Express.js",
+  // },
+  // {
+  //   text: "MongoDB",
+  // },
+  // {
+  //   text: "Prisma",
+  // },
+  {
+    text: "GraphQL",
+  },
+  {
+    text: "Strapi",
+  },
+  // {
+  //   text: "Firebase",
+  // },
+  {
+    text: "Supabase",
+  },
+];
 ---
 
 <Layout title="Portfollio">
@@ -31,10 +88,35 @@ import {
         </h1>
         <p class="mb-4 text-base text-gray-200">Front-End Developer</p>
         <p class="text-gray-400">
-          Building Exceptional Websites with Javascript, and TypeScript |
-          React.js, Next.js, Vue.js | Dedicated to Quality, Performance, and
-          Continuous Learning.
+          Elevating Web Experiences with Expertise and Ingenuity | Unwavering
+          Commitment to Quality, Performance, and Continuous Learning.
         </p>
+      </div>
+    </section>
+    <section class="mb-16">
+      <div class="logoslider">
+        <ul>
+          {
+            techStack.map((tech) => (
+              <li>
+                <p class="text-lg text-gray-400 hover:text-gray-100">
+                  {tech.text}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+        <ul>
+          {
+            techStack.map((tech) => (
+              <li>
+                <p class="text-lg text-gray-400 hover:text-gray-100">
+                  {tech.text}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </section>
     <section class="mb-16">
@@ -77,3 +159,30 @@ import {
 </Layout>
 
 <!-- todo  https://web.dev/use-srcset-to-automatically-choose-the-right-image/ -->
+
+<style>
+  /* logo animation */
+  .logoslider {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .logoslider ul {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: logoslider 20s linear infinite;
+  }
+  .logoslider li {
+    padding: 0 15px;
+  }
+
+  @keyframes logoslider {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>

@@ -11,8 +11,8 @@ export function Header(props: headerProps) {
 
   return (
     <header class="container mx-auto max-w-2xl px-4">
-      <nav class="mb-16 mt-8 flex w-full items-center justify-between">
-        <ul class="flex gap-5 sm:gap-1 md:gap-2">
+      <nav class="text-md mb-16 mt-8 flex w-full items-center justify-between">
+        <ul class="flex gap-1">
           <li>
             <a
               href="/"
@@ -23,6 +23,7 @@ export function Header(props: headerProps) {
               Home
             </a>
           </li>
+          <span class="text-gray-400">/</span>
           <li>
             <a
               href="/gists/"
@@ -33,6 +34,7 @@ export function Header(props: headerProps) {
               Gist
             </a>
           </li>
+          <span class="text-gray-400">/</span>
           <li>
             <a
               href="/guestBook/"

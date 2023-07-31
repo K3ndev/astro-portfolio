@@ -11,13 +11,17 @@ type DataType = {
 };
 
 const fetchRepos = async () => {
-  const username = "K3ndev";
-  const url = `https://api.github.com/users/${username}/repos`;
+  try {
+    const username = "K3ndev";
+    const url = `https://api.github.com/users/${username}/repos`;
 
-  const data = await fetch(url);
-  const res = await data.json();
+    const data = await fetch(url);
+    const res = await data.json();
 
-  return res;
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export function ProjectList() {
@@ -33,13 +37,13 @@ export function ProjectList() {
         "next",
         "vue",
         "nuxt",
-        "svelte",
-        "sveltekit",
+        "node",
         "express",
         "strapi",
-        "django",
-        "fastapi",
         "template",
+        "golang",
+        "chi",
+        "mux",
       ];
       const filteredRepos = res.filter((repo: DataType) =>
         keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
@@ -94,7 +98,7 @@ export function ProjectList() {
         )}
       </For>
       <a
-        class="flex items-center gap-1 text-gray-400 transition duration-300 ease-out hover:text-gray-200 hover:underline"
+        class="flex items-center gap-1 text-gray-400 transition duration-300 ease-out hover:text-cyan-700 hover:underline"
         href="https://github.com/K3ndev?tab=repositories"
         target="_blank"
       >
