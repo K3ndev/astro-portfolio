@@ -44,6 +44,7 @@ export function ProjectList() {
         "golang",
         "chi",
         "mux",
+        "stellar"
       ];
       const filteredRepos = res.filter((repo: DataType) =>
         keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
