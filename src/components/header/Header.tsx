@@ -10,14 +10,8 @@ export function Header(props: headerProps) {
   const { home, guestBook, gists } = props;
 
   return (
-    <>
-      <div class="w-100 sticky top-0">
-        <div
-          class="h-1 bg-cyan-700"
-          id="banner-loading"
-          style="width: 0%;"
-        ></div>
-      </div>
+
+
       <header class="container mx-auto max-w-2xl px-4">
         <nav class="text-md mb-16 mt-8 flex w-full items-center justify-between">
           <ul class="flex gap-1">
@@ -66,6 +60,5 @@ export function Header(props: headerProps) {
           </div>
         </nav>
       </header>
-    </>
   );
 }
