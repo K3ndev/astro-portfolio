@@ -144,6 +144,9 @@ const { title } = Astro.props;
   }
 </style>
 
+<script
+  src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"
+></script>
 <script>
   const generateStart = (n) => {
     let value = `${Math.floor(Math.random() * 2000)}px ${Math.floor(
@@ -163,4 +166,17 @@ const { title } = Astro.props;
   let starsElement2 = document.getElementById("stars2");
   starsElement1.style.boxShadow = generateStart(300);
   starsElement2.style.boxShadow = generateStart(200);
+</script>
+
+<script>
+  import Lenis from "@studio-freight/lenis";
+
+  const lenis = new Lenis();
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
 </script>
