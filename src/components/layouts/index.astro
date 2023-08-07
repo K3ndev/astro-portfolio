@@ -148,6 +148,16 @@ const { title } = Astro.props;
   src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"
 ></script>
 <script>
+  import Lenis from "@studio-freight/lenis";
+
+  const lenis = new Lenis();
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // background stars
   const generateStart = (n) => {
     let value = `${Math.floor(Math.random() * 2000)}px ${Math.floor(
       Math.random() * 2000
@@ -161,22 +171,23 @@ const { title } = Astro.props;
 
     return value;
   };
-
   let starsElement1 = document.getElementById("stars");
   let starsElement2 = document.getElementById("stars2");
   starsElement1.style.boxShadow = generateStart(300);
   starsElement2.style.boxShadow = generateStart(200);
-</script>
 
-<script>
-  import Lenis from "@studio-freight/lenis";
+  // animation loading top scroll
+  function updateScrollData() {
+    let scrollWPercentage = 0;
+    const totalScrollHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const currentScrollY = window.scrollY;
+    const percentage = (currentScrollY / totalScrollHeight) * 100;
 
-  const lenis = new Lenis();
+    scrollWPercentage = Math.round(percentage);
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
+    const loadingLine = document.getElementById("banner-loading");
+    loadingLine.style.width = `${scrollWPercentage}%`;
   }
-
-  requestAnimationFrame(raf);
+  window.addEventListener("scroll", updateScrollData);
 </script>
