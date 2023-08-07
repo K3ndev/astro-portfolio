@@ -63,7 +63,7 @@ const { title } = Astro.props;
     />
     <meta property="og:type" content="website" />
   </head>
-  <body class="flex min-h-screen flex-col text-white">
+  <body class="flex min-h-[100dvh] flex-col text-white">
     <div id="stars"></div>
     <div id="stars2"></div>
     <slot />
@@ -141,6 +141,21 @@ const { title } = Astro.props;
     100% {
       opacity: 1;
     }
+  }
+
+  /* Hide vertical scrollbar */
+  /* Chrome, Safari, and newer versions of Edge */
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
+  html {
+    /* Firefox */
+
+    scrollbar-width: none;
+    /* Internet Explorer 10+ */
+    /* Hide vertical scrollbar */
+    -ms-overflow-style: none;
   }
 </style>
 
