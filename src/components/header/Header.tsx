@@ -10,11 +10,9 @@ export function Header(props: headerProps) {
   const { home, guestBook, gists } = props;
 
   return (
-
-
       <header class="container mx-auto max-w-2xl px-4">
         <nav class="text-md mb-16 mt-8 flex w-full items-center justify-between">
-          <ul class="flex gap-1">
+          <ul class="flex gap-1 lg:gap-2">
             <li>
               <a
                 href="/"
@@ -25,7 +23,9 @@ export function Header(props: headerProps) {
                 Home
               </a>
             </li>
-            <span class="text-gray-400">/</span>
+            <li>
+              <span class="text-gray-400" aria-label="Separator">/</span>
+            </li>
             <li>
               <a
                 href="/gists/"
@@ -36,7 +36,9 @@ export function Header(props: headerProps) {
                 Gist
               </a>
             </li>
-            <span class="text-gray-400">/</span>
+            <li>
+              <span class="text-gray-400" aria-label="Separator">/</span>
+            </li>
             <li>
               <a
                 href="/guestBook/"

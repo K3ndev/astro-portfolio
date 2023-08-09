@@ -27,7 +27,7 @@ const gists = res.map((repo: any) => ({
         gists.map((item: any) => {
           return (
             <a
-              class="mb-3 flex cursor-pointer items-center gap-3 bg-gray-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:gap-4"
+              class="mb-3 flex cursor-pointer items-center gap-3 bg-slate-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:gap-4"
               href={item.html_url}
               target="_blank"
             >
@@ -35,10 +35,10 @@ const gists = res.map((repo: any) => ({
                 <FaRegularFileCode class="text-xl" />
               </div>
               <div>
-                <h3 class={`text-base text-gray-200 md:text-lg`}>
+                <h3 class={`text-base text-slate-100 md:text-lg`}>
                   {item.filename}
                 </h3>
-                <p class="text-sm text-gray-400 md:text-base">
+                <p class="text-sm text-slate-400 md:text-base">
                   Updated at: {item.updated_at}
                 </p>
               </div>
@@ -46,13 +46,15 @@ const gists = res.map((repo: any) => ({
           );
         })
       }
-      <a
-        class="flex items-center gap-1 text-gray-400 transition duration-300 ease-out hover:text-gray-200 hover:underline"
+      <div class="flex items-center gap-1">
+        <a
+        class="inline text-slate-400 transition duration-300 ease-out hover:text-cyan-600 hover:underline"
         href="https://gist.github.com/K3ndev"
         target="_blank"
       >
-        View all Gist <AiOutlineArrowRight />
+        View all Gist <AiOutlineArrowRight class="inline"/>
       </a>
+      </div>
     </section>
   </main>
   <Footer />

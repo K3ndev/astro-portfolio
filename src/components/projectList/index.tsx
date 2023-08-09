@@ -64,22 +64,22 @@ export function ProjectList() {
       {/* card */}
       <For each={data()} fallback={<Loading />}>
         {(item: DataType) => (
-          <div class="mb-3 flex min-h-[68px] justify-between gap-3 bg-gray-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4">
+          <div class="mb-3 flex min-h-[68px] justify-between gap-3 bg-slate-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4">
             <div class="flex w-full gap-3">
               <div class="flex items-center">
-                <a href={item.html_url} target="_blank">
-                  <FaRegularFileCode class="cursor-pointer text-xl hover:fill-cyan-700" />
+                <a href={item.html_url} target="_blank" aria-label={`Link to ${item.name}`}>
+                  <FaRegularFileCode class="cursor-pointer text-xl hover:fill-cyan-600" />
                 </a>
               </div>
               <div>
                 <a
-                  class={`text-base text-gray-200 hover:cursor-pointer hover:text-cyan-700 hover:underline md:text-lg`}
+                  class={`text-base text-slate-100 hover:cursor-pointer hover:text-cyan-600 hover:underline md:text-lg`}
                   href={item.html_url}
                   target="_blank"
                 >
                   {item.name}
                 </a>
-                <p class="text-sm text-gray-400 md:text-base">
+                <p class="text-sm text-slate-400 md:text-base">
                   {item.description}
                 </p>
               </div>
@@ -87,7 +87,7 @@ export function ProjectList() {
             <div class="flex items-start pt-2">
               {item.homepage !== "" ? (
                 <a href={item.homepage} target="_blank">
-                  <AiOutlineLink class="cursor-pointer text-xl hover:fill-cyan-700" />
+                  <AiOutlineLink class="cursor-pointer text-xl hover:fill-cyan-600" />
                 </a>
               ) : (
                 <p>
@@ -98,13 +98,15 @@ export function ProjectList() {
           </div>
         )}
       </For>
-      <a
-        class="flex items-center gap-1 text-gray-400 transition duration-300 ease-out hover:text-cyan-700 hover:underline"
+      <div class="flex items-center gap-1">
+        <a
+        class="inline text-slate-400 transition duration-300 ease-out hover:text-cyan-600 hover:underline"
         href="https://github.com/K3ndev?tab=repositories"
         target="_blank"
       >
-        View all Projects <AiOutlineArrowRight />
+        View all Projects <AiOutlineArrowRight class="inline"/>
       </a>
+      </div>
     </section>
   );
 }
