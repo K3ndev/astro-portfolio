@@ -67,13 +67,13 @@ export function ProjectList() {
           <div class="mb-3 flex min-h-[68px] justify-between gap-3 bg-slate-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4">
             <div class="flex w-full gap-3">
               <div class="flex items-center">
-                <a href={item.html_url} target="_blank" aria-label={`Link to ${item.name}`}>
+                <a href={item.html_url} target="_blank" aria-label={`Github Link to ${item.name}`}>
                   <FaRegularFileCode class="cursor-pointer text-xl hover:fill-cyan-600" />
                 </a>
               </div>
               <div>
                 <a
-                  class={`text-base text-slate-100 hover:cursor-pointer hover:text-cyan-600 hover:underline md:text-lg`}
+                  class={`text-base text-white hover:cursor-pointer hover:text-cyan-600 hover:underline md:text-lg`}
                   href={item.html_url}
                   target="_blank"
                 >
@@ -86,7 +86,7 @@ export function ProjectList() {
             </div>
             <div class="flex items-start pt-2">
               {item.homepage !== "" ? (
-                <a href={item.homepage} target="_blank">
+                <a href={item.homepage} target="_blank" aria-label={`Website Link to ${item.name}`}>
                   <AiOutlineLink class="cursor-pointer text-xl hover:fill-cyan-600" />
                 </a>
               ) : (
