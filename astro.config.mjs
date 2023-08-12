@@ -12,4 +12,7 @@ export default defineConfig({
   integrations: [solidJs(), tailwind()],
   output: "server",
   adapter: vercel(),
+  experimental: {
+    viewTransitions: true
+   }
 });
