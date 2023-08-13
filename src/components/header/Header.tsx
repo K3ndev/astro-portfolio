@@ -1,20 +1,24 @@
 import { BsSpeedometer } from "solid-icons/bs";
-import { createSignal, onMount } from "solid-js";
+import { createSignal, onMount, onCleanup } from "solid-js";
 
 export function Header() {
   const [location, setLocation] = createSignal<string>();
 
   onMount(() => {
-    if (typeof window !== 'undefined') {
-      const handler = () => setLocation(window.location.pathname);
+    const handler = () => setLocation(window.location.pathname);
 
+    if (typeof window !== 'undefined') {
       window.addEventListener('popstate', handler);
 
       handler();
-
-      return () => window.removeEventListener('popstate', handler);
-    } 
+    }   
+    
+    onCleanup(() => {
+      window.removeEventListener('popstate', handler);
+    })
   })
+
+ 
  
   return (
       <header class="container mx-auto max-w-2xl px-4">
