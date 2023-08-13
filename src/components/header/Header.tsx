@@ -1,24 +1,29 @@
 import { BsSpeedometer } from "solid-icons/bs";
+import { createSignal, onMount } from "solid-js";
 
-type headerProps = {
-  home?: boolean;
-  guestBook?: boolean;
-  gists?: boolean;
-};
+export function Header() {
+  const [location, setLocation] = createSignal<string>();
 
-export function Header(props: headerProps) {
-  const { home, guestBook, gists } = props;
+  onMount(() => {
+    if (typeof window !== 'undefined') {
+      const handler = () => setLocation(window.location.pathname);
 
+      window.addEventListener('popstate', handler);
+
+      handler();
+
+      return () => window.removeEventListener('popstate', handler);
+    } 
+  })
+ 
   return (
       <header class="container mx-auto max-w-2xl px-4">
         <nav class="text-md mb-16 mt-8 flex w-full items-center justify-between">
-          <ul class="flex gap-1 lg:gap-2">
+          <ul class="flex gap-1 lg:gap-2 text-slate-400">
             <li>
               <a
                 href="/"
-                class={`cursor-pointer ${
-                  home ? "text-white" : "text-slate-400"
-                } rounded-lg p-1 transition duration-300 ease-out hover:bg-slate-800 md:px-3 md:py-2`}
+                class={`${location() === '/' ? 'text-white' : ''} cursor-pointer rounded-lg p-1 transition duration-300 ease-out hover:bg-slate-800 md:px-3 md:py-2`}
               >
                 Home
               </a>
@@ -29,9 +34,7 @@ export function Header(props: headerProps) {
             <li>
               <a
                 href="/gists/"
-                class={`cursor-pointer ${
-                  gists ? "text-white" : "text-slate-400"
-                } rounded-lg p-1 transition duration-300 ease-out hover:bg-slate-800 md:px-3 md:py-2`}
+                class={`${location() === '/gists/' ? 'text-white' : ''} cursor-pointer rounded-lg p-1 transition duration-300 ease-out hover:bg-slate-800 md:px-3 md:py-2`}
               >
                 Gist
               </a>
@@ -42,9 +45,7 @@ export function Header(props: headerProps) {
             <li>
               <a
                 href="/guestBook/"
-                class={`cursor-pointer ${
-                  guestBook ? "text-white" : "text-slate-400"
-                } rounded-lg p-1 transition duration-300 ease-out hover:bg-slate-800 md:px-3 md:py-2`}
+                class={`${location() === '/guestBook/' ? 'text-white' : ''} cursor-pointer rounded-lg p-1 transition duration-300 ease-out hover:bg-slate-800 md:px-3 md:py-2`}
               >
                 GuestBook
               </a>
