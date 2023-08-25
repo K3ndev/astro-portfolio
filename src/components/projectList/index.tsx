@@ -1,7 +1,8 @@
 import { For, onMount, createSignal } from "solid-js";
 import { FaRegularFileCode } from "solid-icons/fa";
-import { AiOutlineArrowRight, AiOutlineLink } from "solid-icons/ai";
+import { AiOutlineArrowRight } from "solid-icons/ai";
 import { Loading } from "./Loading";
+import { BiRegularLinkExternal } from 'solid-icons/bi'
 
 type DataType = {
   name: string;
@@ -87,11 +88,11 @@ export function ProjectList() {
             <div class="flex items-start pt-2">
               {item.homepage !== "" ? (
                 <a href={item.homepage} target="_blank" aria-label={`Website Link to ${item.name}`}>
-                  <AiOutlineLink class="cursor-pointer text-xl hover:fill-cyan-600" />
+                  <BiRegularLinkExternal class="cursor-pointer text-xl hover:fill-cyan-600" />
                 </a>
               ) : (
                 <p>
-                  <AiOutlineLink class="inline cursor-pointer text-xl hover:cursor-not-allowed" />
+                  <BiRegularLinkExternal class="inline cursor-pointer text-xl hover:cursor-not-allowed" />
                 </p>
               )}
             </div>
