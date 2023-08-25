@@ -50,7 +50,7 @@ export function GistList() {
             <h3 class={`text-base text-white md:text-lg`}>
               {item.filename}
             </h3>
-            <p class="text-sm text-slate-400 md:text-base">
+            <p class="text-sm text-slate-400 md:text-base italic">
               Updated at: {item.updated_at}
             </p>
           </div>

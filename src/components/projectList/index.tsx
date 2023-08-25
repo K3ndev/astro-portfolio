@@ -79,7 +79,7 @@ export function ProjectList() {
                 >
                   {item.name}
                 </a>
-                <p class="text-sm text-slate-400 md:text-base">
+                <p class="text-sm text-slate-400 md:text-base italic">
                   {item.description}
                 </p>
               </div>
