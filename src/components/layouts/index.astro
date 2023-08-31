@@ -3,12 +3,11 @@ export interface Props {
   title: string;
 }
 
-import { ViewTransitions } from 'astro:transitions';
-import { WrapperAnimation } from '..';
-import { Header } from "../index"
+import { ViewTransitions } from "astro:transitions";
+import { WrapperAnimation } from "..";
+import Header from "../header/index.astro";
 
 const { title } = Astro.props;
-
 ---
 
 <!DOCTYPE html>
@@ -71,99 +70,97 @@ const { title } = Astro.props;
     <!-- view transition -->
     <ViewTransitions />
   </head>
-  <body class="flex min-h-[100dvh] flex-col text-white lato-font">
+  <body class="lato-font flex min-h-[100dvh] flex-col text-white">
     <WrapperAnimation client:idle>
-      <Header client:idle/>
+      <Header client:idle />
       <slot />
     </WrapperAnimation>
-  </body>
+  </body><style is:global>
+    /* fonts */
+    /* Playfair Display & Lato */
+    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    .playfair-font {
+      font-family: "Playfair Display", serif;
+    }
+    .lato-font {
+      font-family: "Lato", serif;
+    }
+
+    html {
+      background: rgb(17, 24, 39);
+      background: -moz-radial-gradient(
+        circle,
+        rgba(17, 24, 39, 1) 7%,
+        rgba(17, 22, 35, 1) 37%,
+        rgba(15, 14, 14, 1) 95%
+      );
+      background: -webkit-radial-gradient(
+        circle,
+        rgba(17, 24, 39, 1) 7%,
+        rgba(17, 22, 35, 1) 37%,
+        rgba(15, 14, 14, 1) 95%
+      );
+      background: radial-gradient(
+        circle,
+        rgba(17, 24, 39, 1) 7%,
+        rgba(17, 22, 35, 1) 37%,
+        rgba(15, 14, 14, 1) 95%
+      );
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111827",endColorstr="#0f0e0e",GradientType=1);
+    }
+
+    #stars {
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      border-radius: 100%;
+      animation: blink 2s infinite;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #stars2 {
+      width: 3px;
+      height: 3px;
+      box-shadow: $shadows-medium;
+      background: transparent;
+      border-radius: 100%;
+      animation: blink 4s infinite;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    #stars3 {
+      width: 4px;
+      height: 4px;
+      box-shadow: $shadows-big;
+      background: transparent;
+      border-radius: 100%;
+      animation: blink 3s infinite;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.2;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <script
+    src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"
+  ></script>
 </html>
-<style is:global>
-  /* fonts */
-  /* Playfair Display & Lato */
-  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');  
-  
-  .playfair-font {
-    font-family: 'Playfair Display', serif;
-  }
-  .lato-font {
-    font-family: 'Lato', serif;
-  }
-
-  html {
-    background: rgb(17, 24, 39);
-    background: -moz-radial-gradient(
-      circle,
-      rgba(17, 24, 39, 1) 7%,
-      rgba(17, 22, 35, 1) 37%,
-      rgba(15, 14, 14, 1) 95%
-    );
-    background: -webkit-radial-gradient(
-      circle,
-      rgba(17, 24, 39, 1) 7%,
-      rgba(17, 22, 35, 1) 37%,
-      rgba(15, 14, 14, 1) 95%
-    );
-    background: radial-gradient(
-      circle,
-      rgba(17, 24, 39, 1) 7%,
-      rgba(17, 22, 35, 1) 37%,
-      rgba(15, 14, 14, 1) 95%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111827",endColorstr="#0f0e0e",GradientType=1);
-  }
-
-  #stars {
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    border-radius: 100%;
-    animation: blink 2s infinite;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  #stars2 {
-    width: 3px;
-    height: 3px;
-    box-shadow: $shadows-medium;
-    background: transparent;
-    border-radius: 100%;
-    animation: blink 4s infinite;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  #stars3 {
-    width: 4px;
-    height: 4px;
-    box-shadow: $shadows-big;
-    background: transparent;
-    border-radius: 100%;
-    animation: blink 3s infinite;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  @keyframes blink {
-    0% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0.2;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-</style>
-
-<script
-  src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"
-></script>
