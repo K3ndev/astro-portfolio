@@ -23,7 +23,7 @@ export function Header() {
   return (
       <header class="container mx-auto max-w-2xl px-4">
         <nav class="text-md mb-20 mt-8 flex w-full items-center justify-between">
-          <ul class="flex gap-1 lg:gap-2 text-slate-400">
+          <ul class="flex gap-2 text-slate-400">
             <li>
               <a
                 href="/"

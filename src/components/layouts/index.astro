@@ -71,7 +71,7 @@ const { title } = Astro.props;
     <!-- view transition -->
     <ViewTransitions />
   </head>
-  <body class="flex min-h-[100dvh] flex-col text-white lato-font" transition:animate="morph">
+  <body class="flex min-h-[100dvh] flex-col text-white lato-font">
     <WrapperAnimation client:idle>
       <Header client:idle/>
       <slot />

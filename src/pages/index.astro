@@ -1,8 +1,9 @@
 ---
+import { Image } from "astro:assets"
 import Layout from "../components/layouts/index.astro";
 import Footer from "../components/footer/index.astro";
 import { ProjectList } from "../components/index";
-import ProfilePic from "/profile.webp";
+import ProfilePic from "../../public/profile.webp";
 import {
   AiFillGithub,
   AiFillLinkedin,
@@ -73,7 +74,7 @@ const techStack = [
     <!-- profile -->
     <section class="mb-16 flex flex-col gap-8 md:flex-row-reverse md:gap-14">
       <div class="w-[100px] md:w-[400px] z-50">
-        <img
+        <Image
           src={ProfilePic}
           alt="profile_pic"
           class="aspect-square"
