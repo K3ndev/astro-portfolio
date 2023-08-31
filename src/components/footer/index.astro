@@ -6,6 +6,10 @@ const { company } = DATA
 ---
 
 <footer class="container mx-auto my-8 max-w-2xl px-4" transition:persist>
-  <p class="text-center text-sm text-slate-400 italic mb-2">{company === null ? "Status: Seeking new opportunities" : `Status: Employed`}</p>
+  {company ?
+    <p class="text-center text-sm text-slate-400 italic mb-2">{company === null ? "Status: Seeking new opportunities" : `Status: Employed`}</p>
+    : 
+    <p class="text-center text-sm text-slate-400 italic mb-2">Status: <span class="bg-gray-800 cursor-wait text-gray-800">Loading</span></p>
+  }
   <p class="text-center text-sm text-slate-400">Build by me ©2023</p>
 </footer>
