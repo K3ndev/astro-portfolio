@@ -29,9 +29,9 @@ test.describe('navigation', () => {
 
         // Expectations for the gist navigation test:
 
-        // 2. Check if the page title is 'GuestBook'.
+        // 2. Check if the page title is 'Gist'.
         const pageTitle = await page.title();
-        expect(pageTitle).toBe('GuestBook');
+        expect(pageTitle).toBe('Gist');
     });
 
     test('guestBook navigation', async ({ page }) => {
