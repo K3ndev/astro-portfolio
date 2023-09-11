@@ -1,66 +1,18 @@
-import { For, onMount, createSignal } from "solid-js";
+import { For } from "solid-js";
 import { Loading } from "./Loading";
+import { Error } from "./Error"
+import { FetchRepos } from "../../hooks";
+import { type DataType } from "./types"
 
-type DataType = {
-  name: string;
-  description: string;
-  html_url: string;
-  homepage?: string;
-};
-
-const fetchRepos = async () => {
-  try {
-    const username = "K3ndev";
-    const url = `https://api.github.com/users/${username}/repos`;
-
-    const data = await fetch(url);
-    const res = await data.json();
-
-    return res;
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 export function ProjectList() {
-  const [data, setData] = createSignal([]);
 
-  onMount(() => {
-    fetchRepos().then((res) => {
-      const keywords = [
-        "astro",
-        "solid",
-        "solidstart",
-        "react",
-        "next",
-        "vue",
-        "nuxt",
-        "node",
-        "express",
-        "strapi",
-        "template",
-        "golang",
-        "chi",
-        "mux",
-        "stellar"
-      ];
-      const filteredRepos = res.filter((repo: DataType) =>
-        keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
-      );
-      const repositories = filteredRepos.map((repo: DataType) => ({
-        name: repo.name,
-        description: repo.description,
-        html_url: repo.html_url,
-        homepage: repo.homepage,
-      }));
-      setData(repositories);
-    });
-  });
+  const { data, isError, isLoading } = FetchRepos()
 
   return (
     <section class="mb-12">
       {/* card */}
-      <For each={data()} fallback={<Loading />}>
+      {!isError() && <For each={data()} fallback={<Loading />}>
         {(item: DataType) => (
           <div class="mb-3 flex min-h-[68px] justify-between gap-3 bg-slate-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:min-h-[76px] md:gap-4">
             <div class="flex w-full gap-3">
@@ -95,7 +47,8 @@ export function ProjectList() {
             </div>
           </div>
         )}
-      </For>
+      </For>}
+      {isError() && !isLoading() && <Error />}
       <div class="flex items-center gap-1">
         <a
           class="inline text-slate-400 transition duration-300 ease-out hover:text-cyan-600 hover:underline"

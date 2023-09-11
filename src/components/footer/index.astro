@@ -1,8 +1,10 @@
 ---
 // streaming
-const response = await fetch("https://api.github.com/users/K3ndev");
-const DATA = await response.json();
-const { company } = DATA;
+// !TODO handle err with streaming
+// const response = await fetch("https://api.github.com/users/K3ndev");
+// const DATA = await response.json();
+// const { company } = DATA;
+
 ---
 
 <footer
@@ -10,8 +12,8 @@ const { company } = DATA;
   transition:persist
   transition:name="footer"
 >
-  {
-    company !== undefined ? (
+  <!-- {
+    response.ok && company !== undefined ? (
       <p class="mb-2 text-center text-sm italic text-slate-400">
         {company === null
           ? "Status: Seeking new opportunities"
@@ -23,6 +25,6 @@ const { company } = DATA;
         <span class="cursor-wait bg-gray-800 text-gray-800">Loading</span>
       </p>
     )
-  }
+  } -->
   <p class="text-center text-sm text-slate-400">Build by me ©2023</p>
 </footer>
