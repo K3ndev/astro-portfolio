@@ -1,5 +1,5 @@
-import { onMount, createSignal } from "solid-js";
-import { type DataType } from "./types"
+import { onMount, createSignal, onCleanup } from "solid-js";
+import { type ReposType } from "./types"
 
 export const FetchRepos = () => {
 
@@ -7,13 +7,15 @@ export const FetchRepos = () => {
   const [isError, setIsError] = createSignal(false);
   const [isLoading, setIsLoading] = createSignal(false);
 
+  const abortController = new AbortController(); 
 
   const fetchData = async (username: string) => {
+
     const url = `https://api.github.com/users/${username}/repos`;
 
-    const data = await fetch(url);
-
-    // throw new Error("test"); 
+    const data = await fetch(url, {
+      signal: abortController.signal,
+    });
 
     setIsLoading(true)
     const res = await data.json();
@@ -33,18 +35,14 @@ export const FetchRepos = () => {
         "nuxt",
         "node",
         "express",
-        "strapi",
         "template",
-        "golang",
-        "chi",
-        "mux",
         "stellar"
       ];
 
-      const filteredRepos = res.filter((repo: DataType) =>
+      const filteredRepos = res.filter((repo: ReposType) =>
         keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
       );
-      const repositories = filteredRepos.map((repo: DataType) => ({
+      const repositories = filteredRepos.map((repo: ReposType) => ({
         name: repo.name,
         description: repo.description,
         html_url: repo.html_url,
@@ -55,6 +53,10 @@ export const FetchRepos = () => {
     }).catch((_) => {
       setIsError(true)
       setIsLoading(false)
+    })
+
+    onCleanup(() => {
+      abortController.abort();
     })
   });
 
