@@ -87,8 +87,8 @@ const techStack = [
       </div>
     </section>
     <section class="mb-16">
-      <div class="logoslider">
-        <ul>
+      <div class="scroller" data-speed="fast" data-animated="true">
+        <ul class="scroller__inner">
           {
             techStack.map((tech) => (
               <li>
@@ -98,8 +98,6 @@ const techStack = [
               </li>
             ))
           }
-        </ul>
-        <ul>
           {
             techStack.map((tech) => (
               <li>
@@ -210,27 +208,61 @@ const techStack = [
 
 <style>
   /* logo animation */
-  .logoslider {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  .logoslider ul {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    animation: logoslider 20s linear infinite;
-  }
-  .logoslider li {
-    padding: 0 15px;
+  .scroller {
+    max-width: 600px;
   }
 
-  @keyframes logoslider {
-    from {
-      transform: translateX(0);
-    }
+  .scroller__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 5%,
+      white 95%,
+      transparent
+    );
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 5%,
+      white 95%,
+      transparent
+    );
+  }
+
+  .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 40s;
+  }
+
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+  }
+
+  @keyframes scroll {
     to {
-      transform: translateX(-100%);
+      transform: translate(calc(-50% - 0.5rem));
     }
   }
+
 </style>
