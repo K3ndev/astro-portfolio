@@ -32,6 +32,7 @@ export const FetchRepos = () => {
         "react",
         "next",
         "vue",
+        "angular",
         "nuxt",
         "node",
         "express",
