@@ -37,7 +37,8 @@ export const FetchRepos = () => {
         "node",
         "express",
         "template",
-        "stellar"
+        "stellar",
+        "tauri"
       ];
 
       const filteredRepos = res.filter((repo: ReposType) =>
