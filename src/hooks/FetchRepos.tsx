@@ -38,7 +38,8 @@ export const FetchRepos = () => {
         "express",
         "template",
         "stellar",
-        "tauri"
+        "tauri",
+        "laravel"
       ];
 
       const filteredRepos = res.filter((repo: ReposType) =>
