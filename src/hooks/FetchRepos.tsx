@@ -32,19 +32,21 @@ export const FetchRepos = () => {
         "react",
         "next",
         "vue",
-        "angular",
-        "nuxt",
+        // "angular",
+        // "nuxt",
         "node",
         "express",
-        "template",
+        // "template",
         "stellar",
         "tauri",
-        "laravel"
+        // "laravel"
       ];
 
       const filteredRepos = res.filter((repo: ReposType) =>
-        keywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
+        keywords.some((keyword) => repo.name.toLowerCase().includes(keyword)) &&
+        !repo.description.toLowerCase().includes("under")
       );
+
       const repositories = filteredRepos.map((repo: ReposType) => ({
         name: repo.name,
         description: repo.description,
