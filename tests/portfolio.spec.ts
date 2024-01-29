@@ -25,7 +25,7 @@ test.describe('navigation', () => {
 
 
         // 1. Check if the URL matches the expected URL after clicking.
-        await expect(page).toHaveURL('https://astro-k3ndev.vercel.app/gists/');
+        await expect(page).toHaveURL('https://astro-k3ndev.vercel.app/gists');
 
         // Expectations for the gist navigation test:
 
@@ -42,7 +42,7 @@ test.describe('navigation', () => {
         // Expectations for the guestBook navigation test:
 
         // 1. Check if the URL matches the expected URL after clicking.
-        await expect(page).toHaveURL('https://astro-k3ndev.vercel.app/guestBook/');
+        await expect(page).toHaveURL('https://astro-k3ndev.vercel.app/guestBook');
 
         // 2. Check if the page title is 'GuestBook'.
         const pageTitle = await page.title();
