@@ -49,11 +49,9 @@ export const FetchRepos = () => {
         // "laravel"
       ];
 
-      const descKeywords = ["under", "demo"]
-
       const filteredRepos = res.filter((repo: ReposType) =>
-      repoKeywords.some((keyword) => repo.name.toLowerCase().includes(keyword)) &&
-        !descKeywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
+        repoKeywords.some((keyword) => repo.name.toLowerCase().includes(keyword)) &&
+        !repo.description.toLowerCase().includes("under") && !repo.description.toLowerCase().includes("demo")
       );
 
       const repositories = filteredRepos.map((repo: ReposType) => ({

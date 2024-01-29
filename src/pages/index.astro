@@ -87,7 +87,7 @@ const techStack = [
       </div>
     </section>
     <section class="mb-16">
-      <div class="scroller" data-speed="fast" data-animated="true">
+      <div class="scroller" data-speed="slow" data-animated="true">
         <ul class="scroller__inner">
           {
             techStack.map((tech) => (
@@ -256,7 +256,7 @@ const techStack = [
   }
 
   .scroller[data-speed="slow"] {
-    --_animation-duration: 60s;
+    --_animation-duration: 50s;
   }
 
   @keyframes scroll {
