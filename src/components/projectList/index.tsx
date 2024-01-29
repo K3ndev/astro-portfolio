@@ -2,8 +2,13 @@ import { For } from "solid-js";
 import { Loading } from "./Loading";
 import { Error } from "./Error"
 import { FetchRepos } from "../../hooks";
-import { type DataType } from "./types"
 
+type DataType = {
+  name: string;
+  description: string;
+  html_url: string;
+  homepage?: string;
+};
 
 export function ProjectList() {
 

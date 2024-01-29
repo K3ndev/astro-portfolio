@@ -2,7 +2,13 @@ import { For } from "solid-js";
 import { Loading } from "./Loading";
 import { Error } from "./Error"
 import { FetchGist } from "../../hooks/FetchGist"
-import { type DataType } from "./types"
+
+type GistType = {
+  filename: string;
+  html_url: string;
+  updated_at: string;
+  files: Record<string, { filename: string }>;
+};
 
 export function GistList() {
 
@@ -13,7 +19,7 @@ export function GistList() {
       {/* card */}
       {!isError() &&
         <For each={data()} fallback={<Loading />}>
-          {(item: DataType) => (
+          {(item: GistType) => (
             <a
               class="mb-3 flex cursor-pointer items-center gap-3 bg-slate-800 p-3 transition duration-300 ease-in-out hover:scale-105 md:gap-4"
               href={item.html_url}

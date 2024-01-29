@@ -1,5 +1,11 @@
 import { onMount, createSignal, onCleanup } from "solid-js";
-import { type ReposType } from "./types"
+
+type ReposType = {
+  name: string;
+  description: string;
+  html_url: string;
+  homepage?: string;
+};
 
 export const FetchRepos = () => {
 

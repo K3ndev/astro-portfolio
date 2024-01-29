@@ -1,5 +1,11 @@
 import { onMount, createSignal, onCleanup } from "solid-js";
-import { type GistType } from "./types"
+
+type GistType = {
+    filename: string;
+    html_url: string;
+    updated_at: string;
+    files: Record<string, { filename: string }>;
+  };
 
 export const FetchGist = () => {
 
