@@ -25,7 +25,8 @@ export const FetchRepos = () => {
 
   onMount(() => {
     fetchData("K3ndev").then((res) => {
-      const keywords = [
+      
+      const repoKeywords = [
         "astro",
         "solid",
         "solidstart",
@@ -42,9 +43,11 @@ export const FetchRepos = () => {
         // "laravel"
       ];
 
+      const descKeywords = ["under", "demo"]
+
       const filteredRepos = res.filter((repo: ReposType) =>
-        keywords.some((keyword) => repo.name.toLowerCase().includes(keyword)) &&
-        !repo.description.toLowerCase().includes("under")
+      repoKeywords.some((keyword) => repo.name.toLowerCase().includes(keyword)) &&
+        !descKeywords.some((keyword) => repo.name.toLowerCase().includes(keyword))
       );
 
       const repositories = filteredRepos.map((repo: ReposType) => ({
