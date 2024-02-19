@@ -32,27 +32,7 @@ export const FetchRepos = () => {
   onMount(() => {
     fetchData("K3ndev").then((res) => {
       
-      const repoKeywords = [
-        "astro",
-        "solid",
-        "solidstart",
-        "react",
-        "next",
-        "vue",
-        // "angular",
-        // "nuxt",
-        "node",
-        "express",
-        // "template",
-        "stellar",
-        "tauri",
-        // "laravel"
-      ];
-
-      const filteredRepos = res.filter((repo: ReposType) =>
-        repoKeywords.some((keyword) => repo.name.toLowerCase().includes(keyword)) &&
-        !repo.description.toLowerCase().includes("under") && !repo.description.toLowerCase().includes("demo")
-      );
+    const filteredRepos = res.filter((item: ReposType) => item.description.includes('~'));
 
       const repositories = filteredRepos.map((repo: ReposType) => ({
         name: repo.name,
