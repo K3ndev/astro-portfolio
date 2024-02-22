@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Layout from "../components/layouts/index.astro";
 import Footer from "../components/footer/index.astro";
-import { ProjectList } from "../components/index";
+import { ProjectList, ExpList } from "../components/index";
 import ProfilePic from "../../public/profile.webp";
 const techStack = [
   {
@@ -38,9 +38,9 @@ const techStack = [
   // {
   //   text: "GSAP",
   // },
-  {
-    text: "Playwright",
-  },
+  // {
+  //   text: "Playwright",
+  // },
   {
     text: "Prisma",
   },
@@ -78,7 +78,7 @@ const techStack = [
           Kenneth Racelis
         </h1>
         <p class="mb-4 text-lg text-slate-200 md:text-xl">
-          Aspiring Web Pentester
+          Aspiring Security Researcher
         </p>
         <p class="text-slate-400">
           Elevating Web Experiences with Expertise and Ingenuity | Unwavering
@@ -111,9 +111,17 @@ const techStack = [
       </div>
     </section>
     <section class="mb-16">
+      <h2 class="mb-4 text-2xl">Experience</h2>
+      <ExpList client:idle />
+    </section>
+    <section class="mb-16">
       <h2 class="mb-4 text-2xl">Projects</h2>
       <ProjectList client:idle />
     </section>
+    <!-- <section class="mb-16">
+      <h2 class="mb-4 text-2xl">Education / Certification</h2>
+      <EduList client:idle />
+    </section> -->
     <section class="mb-16">
       <h3 class="playfair-font mb-4 text-3xl md:text-4xl">Get in Touch</h3>
       <p class="text-slate-400">
