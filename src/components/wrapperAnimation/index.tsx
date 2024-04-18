@@ -29,10 +29,13 @@ export function WrapperAnimation (props : any) {
         let starsElement1 = document.getElementById("stars1");
         let starsElement2 = document.getElementById("stars2");
         let starsElement3 = document.getElementById("stars3");
+        let starsElement4 = document.getElementById("stars4");
 
-        starsElement1!.style.boxShadow = generateStart(300);
+
+        starsElement1!.style.boxShadow = generateStart(200);
         starsElement2!.style.boxShadow = generateStart(300);
-        starsElement3!.style.boxShadow = generateStart(300);
+        starsElement3!.style.boxShadow = generateStart(400);
+        starsElement4!.style.boxShadow = generateStart(500);
 
     }) 
 
@@ -41,6 +44,7 @@ export function WrapperAnimation (props : any) {
             <div id="stars1"></div>
             <div id="stars2"></div>
             <div id="stars3"></div>
+            <div id="stars4"></div>
             {props.children}
         </>
     )

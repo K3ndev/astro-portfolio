@@ -4,54 +4,37 @@ import Layout from "../components/layouts/index.astro";
 import Footer from "../components/footer/index.astro";
 import { ProjectList, ExpList, EduList } from "../components/index";
 import ProfilePic from "../../public/profile.webp";
-const techStack = [
+
+const messages = [
   {
-    text: "Javascript",
+    text: "Whispers... Watching?",
   },
   {
-    text: "Typescript",
+    text: "Whispers... Watching?",
   },
   {
-    text: "Rust",
+    text: "Whispers... Watching?",
   },
   {
-    text: "React.js",
+    text: "Whispers... Watching?",
   },
   {
-    text: "Next.js",
+    text: "Whispers... Watching?",
   },
   {
-    text: "Solid.js",
+    text: "Whispers... Watching?",
   },
   {
-    text: "Tauri"
+    text: "Whispers... Watching?",
   },
   {
-    text: "Tailwind",
+    text: "Whispers... Watching?",
   },
   {
-    text: "RadixUI",
+    text: "Whispers... Watching?",
   },
   {
-    text: "Shacdn-ui",
-  },
-  // {
-  //   text: "Playwright",
-  // },
-  {
-    text: "Prisma",
-  },
-  {
-    text: "GraphQL",
-  },
-  {
-    text: "Express.js",
-  },
-  {
-    text: "Supabase",
-  },
-  {
-    text: "Docker",
+    text: "Whispers... Watching?",
   },
 ];
 ---
@@ -87,7 +70,7 @@ const techStack = [
       <div class="scroller" data-speed="slow" data-animated="true">
         <ul class="scroller__inner">
           {
-            techStack.map((tech) => (
+            messages.map((tech) => (
               <li>
                 <p class="text-lg text-slate-400 hover:text-slate-100">
                   {tech.text}
@@ -96,7 +79,7 @@ const techStack = [
             ))
           }
           {
-            techStack.map((tech) => (
+            messages.map((tech) => (
               <li>
                 <p class="text-lg text-slate-400 hover:text-slate-100">
                   {tech.text}
