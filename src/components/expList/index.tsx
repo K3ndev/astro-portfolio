@@ -13,7 +13,7 @@ const mockExpData = [
     name: 'Dianoia Tech',
     startDate: 'Feb 2024',
     endDate: 'Present',
-    description: 'Associate Software Engineer',
+    description: 'Software Engineer',
     isPresent: true
   }
 ]
