@@ -11,6 +11,14 @@ type mockEduDataType = {
 
 const mockEduData = [
   {
+    name: 'Cybersecurity Online Training',
+    startDate: 'May 2024',
+    endDate: 'Present',
+    description: 'Hack The Box Academy',
+    cert: '',
+    isPresent: true
+  },
+  {
     name: 'Mapúa Malayan Digital College',
     startDate: 'Apr 2024',
     endDate: 'Present',

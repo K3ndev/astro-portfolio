@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Layout from "../components/layouts/index.astro";
 import Footer from "../components/footer/index.astro";
-import { ProjectList, ExpList, EduList } from "../components/index";
+import { ExpList, EduList } from "../components/index";
 import ProfilePic from "../../public/profile.webp";
 
 const messages = [
@@ -61,8 +61,7 @@ const messages = [
           Aspiring Incident Response Analyst
         </p> -->
         <p class="text-slate-400 text-pretty">
-          At present, I'm working towards honing my skills in JavaScript, TypeScript, 
-          and Rust to create adaptable applications for various platforms.  
+          At present, I'm working towards honing my skills in JavaScript, TypeScript, Rust, and SOC analysis for cybersecurity and software development.
         </p>
       </div>
     </section>
@@ -93,10 +92,6 @@ const messages = [
     <section class="mb-16">
       <h2 class="mb-4 text-2xl">Work</h2>
       <ExpList client:idle />
-    </section>
-    <section class="mb-16">
-      <h2 class="mb-4 text-2xl">Projects</h2>
-      <ProjectList client:idle />
     </section>
     <section class="mb-16">
       <h2 class="mb-4 text-2xl">Education / Certification</h2>
