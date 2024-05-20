@@ -10,26 +10,26 @@ type mockEduDataType = {
 };
 
 const mockEduData = [
-  {
-    name: 'Cybersecurity Online Training',
-    startDate: 'May 2024',
-    endDate: 'Present',
-    description: 'Hack The Box Academy',
-    cert: '',
-    isPresent: true
-  },
+  // {
+  //   name: 'Cybersecurity Online Training',
+  //   startDate: 'May 2024',
+  //   endDate: 'Present',
+  //   description: 'Hack The Box Academy',
+  //   cert: '',
+  //   isPresent: true
+  // },
   {
     name: 'Mapúa Malayan Digital College',
-    startDate: 'Apr 2024',
-    endDate: 'Present',
+    startDate: '', // Apr 2024
+    endDate: '', // Present
     description: 'BSIT Major in Network and Cybersecurity',
     cert: '',
     isPresent: true
   },
   {
-    name: 'Kodego',
-    startDate: 'Nov 2022',
-    endDate: 'Mar 2023',
+    name: 'KodeGo',
+    startDate: '', // Nov 2022
+    endDate: '', // Mar 2023
     description: 'FullStack Development Bootcamp',
     cert: 'https://assets.kodego.ph/public/isa/tQtx2B19J47h1VVVNMva3vL4mivpnSR5EMZLLQt8.pdf',
     isPresent: false
@@ -54,7 +54,8 @@ export function EduList() {
                   {item.description}
                 </div>
                 <p class="text-sm text-slate-400 md:text-base italic">
-                  ~ {item.name}{' '}<span class="text-xs">({`${item.startDate} - ${item.endDate}`})</span>
+                  ~ {item.name}{' '}
+                  {item.startDate && item.endDate && <span class="text-xs">({`${item.startDate} - ${item.endDate}`})</span>}
                 </p>
               </div>
             </div>
