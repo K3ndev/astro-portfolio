@@ -10,11 +10,18 @@ type mockExpDataType = {
 
 const mockExpData = [
   {
+    name: 'Sta. Clara International Corp.',
+    startDate: 'June 2024',
+    endDate: 'Present',
+    description: 'Junior Web Developer (Remote)',
+    isPresent: true
+  },
+  {
     name: 'Dianoia Tech',
     startDate: 'Feb 2024',
-    endDate: 'Present',
-    description: 'Software Engineer',
-    isPresent: true
+    endDate: 'May 2024',
+    description: 'Software Engineer (Remote)',
+    isPresent: false
   }
 ]
 
