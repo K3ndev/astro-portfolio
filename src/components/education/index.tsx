@@ -24,7 +24,7 @@ const mockEduData = [
     endDate: '', // Present
     description: 'BSIT Major in Network and Cybersecurity',
     cert: '',
-    isPresent: true
+    isPresent: false
   },
   {
     name: 'KodeGo',
